@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 class AuthController extends Controller
 {
@@ -23,7 +24,7 @@ class AuthController extends Controller
             'password' =>  'required'
         ]);
 
-        $credentials = $request->only('name','password');
+        $credentials = $request->only('email','password');
             if(Auth::attempt($credentials)){
                 if($request->user()->hasRole('Admin')){
                     return redirect()->route('admin/home')->with('sucess','Signed In !');
@@ -34,6 +35,19 @@ class AuthController extends Controller
                 }
                 return redirect()->intended('dashboard')->with('success','Signed In !');
             }
-            return redirect('login')->with('error','Login details are not valid');
+            return redirect()->route('login')->with('error','Login details are not valid');
+    }
+
+    public function dashboard(){
+        if(Auth::check()){
+            return view('user.dashboard',['user'=>Auth::user()]);
+        }
+        return redirect()->route('login')->with('error','You are not allowed to access');
+    }
+
+    public function logOut(){
+        Session::flush();
+        Auth::logout();
+        return redirect('/login/');
     }
 }

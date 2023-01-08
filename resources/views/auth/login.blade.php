@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-body pt-0">
                             <div class="p-2">
-                                <form class="form-horizontal" action="{{route('login')}}" method="POST">
+                                <form class="form-horizontal" action="{{route('login.post')}}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email">Email</label>
@@ -37,7 +37,7 @@
 {{--                                    </div>--}}
 
                                     <div class="mt-3">
-                                        <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Log In">
+                                        <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Login">
                                     </div>
 
                                 </form>

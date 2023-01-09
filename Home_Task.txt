@@ -1,3 +1,7 @@
 UserRoleController->CRUD
 CompanyController->CRUD
 HolidayController=>CRUD
+MenuController=>CRUD
+PageController->CRUD
+PageItemController
+MenuPageController

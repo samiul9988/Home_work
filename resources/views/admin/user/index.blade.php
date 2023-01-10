@@ -23,33 +23,19 @@
                                 </thead>
                                 <tbody>
                                 @if(isset($users))
-                                    @foreach($users as $user)
-                                        <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>
-                                                <a href="{{route('admin.show-user',$user->id)}}" class="btn btn-xs btn-outline-info"><i class="fa fa-eye"></i></a>
-                                                <a href="{{route('admin.edit-user',$user->id)}}" class="btn btn-xs btn-outline-primary"><i class="fa fa-edit"></i></a>
-                                                <a href="{{route('admin.delete-user',$user->id)}}" class="btn btn-xs btn-outline-danger"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                            <td>{{$user->name}}</td>
-                                            <td>{{$user->email}}</td>
-                                            @if(isset($user->employee))
-                                                <td><a href="{{route('admin.user.employee',$user->employee->id)}}">
-{{--                                                        @php--}}
-{{--                                                            dd($user->employee);--}}
-{{--                                                        @endphp--}}
-                                                        @if($user->employee->employee_id)
-                                                            {{$user->employee->employee_id}}
-                                                        @else
-                                                            {{$user->employee->id}}
-                                                        @endif
-                                                    </a>
-                                                </td>
-                                            @else
-                                                <td></td>
-                                            @endif
-                                        </tr>
-                                    @endforeach
+                                  @foreach ($users as $user)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.show-user',$user->id) }}" class="btn btn-xs btn-outline-info"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ route('admin.edit-user',$user->id) }}" class="btn btn-xs btn-outline-primary"><i class="fa fa-edit"></i></a>
+                                            <a href="{{ route('admin.delete-user',$user->id) }}" class="btn btn-xs btn-outline-danger"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>11223344</td>
+                                    </tr>
+                                  @endforeach
                                 @else
                                     <tr>
                                         <td>1</td>

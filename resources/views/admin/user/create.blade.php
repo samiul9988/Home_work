@@ -1,11 +1,10 @@
 @extends('admin.master')
 @section('body')
-            <section class="pt-5">
+           <section class="pt-5">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h3 class="card-title">User Create</h3>
                     </div>
-
 
                     <form action="{{route('admin.create-user')}}" method="post">
                         @csrf
@@ -41,5 +40,5 @@
                         </div>
                     </form>
                 </div>
-            </section>
+           </section>
 @endsection
